@@ -7,6 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-black: #000;
     --spacing: 0.25rem;
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
@@ -14,6 +15,8 @@
     --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-6xl: 3.75rem;
+    --text-6xl--line-height: 1;
     --font-weight-light: 300;
     --font-weight-medium: 500;
     --font-weight-bold: 700;
@@ -173,6 +176,9 @@
   .relative {
     position: relative;
   }
+  .z-1 {
+    z-index: 1;
+  }
   .z-10 {
     z-index: 10;
   }
@@ -203,6 +209,15 @@
   .mt-auto {
     margin-top: auto;
   }
+  .-mr-\[4ch\] {
+    margin-right: calc(4ch * -1);
+  }
+  .-mb-6 {
+    margin-bottom: calc(var(--spacing) * -6);
+  }
+  .-mb-18 {
+    margin-bottom: calc(var(--spacing) * -18);
+  }
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
   }
@@ -227,11 +242,29 @@
   .w-16 {
     width: calc(var(--spacing) * 16);
   }
+  .w-32 {
+    width: calc(var(--spacing) * 32);
+  }
   .w-screen {
     width: 100vw;
   }
   .max-w-\[65ch\] {
     max-width: 65ch;
+  }
+  .min-w-\[6ch\] {
+    min-width: 6ch;
+  }
+  .min-w-\[7ch\] {
+    min-width: 7ch;
+  }
+  .min-w-\[8ch\] {
+    min-width: 8ch;
+  }
+  .min-w-\[9ch\] {
+    min-width: 9ch;
+  }
+  .min-w-\[10ch\] {
+    min-width: 10ch;
   }
   .grow {
     flex-grow: 1;
@@ -248,8 +281,50 @@
   .bg-dark {
     background-color: var(--color-dark);
   }
+  .bg-linear-to-b {
+    --tw-gradient-position: to bottom;
+    @supports (background-image: linear-gradient(in lab, red, red)) {
+      --tw-gradient-position: to bottom in oklab;
+    }
+    background-image: linear-gradient(var(--tw-gradient-stops));
+  }
+  .from-black {
+    --tw-gradient-from: var(--color-black);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .from-dark {
+    --tw-gradient-from: var(--color-dark);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .via-black {
+    --tw-gradient-via: var(--color-black);
+    --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-via-stops);
+  }
+  .via-60\% {
+    --tw-gradient-via-position: 60%;
+  }
+  .via-80\% {
+    --tw-gradient-via-position: 80%;
+  }
+  .to-transparent {
+    --tw-gradient-to: transparent;
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .pb-12 {
+    padding-bottom: calc(var(--spacing) * 12);
+  }
+  .pb-24 {
+    padding-bottom: calc(var(--spacing) * 24);
+  }
   .text-center {
     text-align: center;
+  }
+  .text-start {
+    text-align: start;
   }
   .text-3xl {
     font-size: var(--text-3xl);
@@ -258,6 +333,10 @@
   .text-4xl {
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-6xl {
+    font-size: var(--text-6xl);
+    line-height: var(--tw-leading, var(--text-6xl--line-height));
   }
   .text-base\/tight {
     font-size: var(--text-base);
@@ -323,6 +402,48 @@
 @property --tw-skew-y {
   syntax: "*";
   inherits: false;
+}
+@property --tw-gradient-position {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-from {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-via {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-to {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-stops {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-via-stops {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-from-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+@property --tw-gradient-via-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+@property --tw-gradient-to-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 100%;
 }
 @property --tw-font-weight {
   syntax: "*";
@@ -398,6 +519,15 @@
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
+      --tw-gradient-position: initial;
+      --tw-gradient-from: #0000;
+      --tw-gradient-via: #0000;
+      --tw-gradient-to: #0000;
+      --tw-gradient-stops: initial;
+      --tw-gradient-via-stops: initial;
+      --tw-gradient-from-position: 0%;
+      --tw-gradient-via-position: 50%;
+      --tw-gradient-to-position: 100%;
       --tw-font-weight: initial;
       --tw-blur: initial;
       --tw-brightness: initial;
