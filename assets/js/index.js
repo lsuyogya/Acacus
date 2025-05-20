@@ -1,5 +1,5 @@
 window.onload = () => {
-  scrambleText("#scrambleText");
+  scrambleText('#scrambleText');
   gradientMove();
 };
 
@@ -14,7 +14,7 @@ function scrambleText(id) {
       duration: 1,
       scrambleText: {
         text: originalText,
-        chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()",
+        chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
         revealDelay: 0.5,
         speed: 2,
       },
@@ -25,7 +25,7 @@ function scrambleText(id) {
   setTimeout(animateScramble, 500);
 
   // Trigger on hover
-  textElement.addEventListener("pointerover", animateScramble);
+  textElement.addEventListener('pointerover', animateScramble);
 
   //   // Trigger on focus (keyboard nav)
   //   textElement.setAttribute("tabindex", "0"); // make it focusable
@@ -33,7 +33,7 @@ function scrambleText(id) {
 }
 
 function gradientMove() {
-  const interBubble = document.querySelector(".interactive");
+  const interBubble = document.querySelector('.interactive');
   let curX = 0;
   let curY = 0;
   let tgX = 0;
@@ -50,7 +50,7 @@ function gradientMove() {
     requestAnimationFrame(move);
   }
 
-  window.addEventListener("mousemove", (event) => {
+  window.addEventListener('mousemove', (event) => {
     tgX = event.clientX;
     tgY = event.clientY;
   });

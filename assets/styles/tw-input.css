@@ -1,6 +1,9 @@
 /* npx @tailwindcss/cli -i ./assets/styles/tw-input.css -o ./assets/styles/tw-output.css --watch */
-@import "tailwindcss";
+@import 'tailwindcss';
 @theme {
   --color-dark: #000;
   --color-light: #fff;
+}
+.container {
+  @apply px-4;
 }
