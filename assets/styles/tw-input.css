@@ -130,6 +130,7 @@
 @theme {
   --color-dark: #000;
   --color-light: #fff;
+  --color-gray: #e1e1e1;
   --font-poppins: 'Poppins';
 }
 .container {
