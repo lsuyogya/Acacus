@@ -1,6 +1,7 @@
 window.onload = () => {
   scrambleText('#scrambleText');
   gradientMove();
+  initAos();
 };
 
 function scrambleText(id) {
@@ -56,4 +57,9 @@ function gradientMove() {
   });
 
   move();
+}
+
+function initAos() {
+  if (!AOS) return;
+  AOS.init();
 }

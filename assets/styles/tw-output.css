@@ -212,6 +212,9 @@
   .mt-auto {
     margin-top: auto;
   }
+  .-mr-\[2ch\] {
+    margin-right: calc(2ch * -1);
+  }
   .-mr-\[4ch\] {
     margin-right: calc(4ch * -1);
   }
