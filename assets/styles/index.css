@@ -219,27 +219,3 @@
     will-change: transform;
   }
 }
-
-@property --edgeColor {
-  syntax: '<color>';
-  initial-value: rgba(255, 255, 255, 0);
-  inherits: false;
-}
-
-.scramble-gradient {
-  --edgeColor: rgba(255, 255, 255, 1);
-  background: linear-gradient(
-    to right,
-    var(--edgeColor) 0%,
-    rgba(255, 255, 255, 1) 40%,
-    rgba(255, 255, 255, 1) 60%,
-    var(--edgeColor) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  pointer-events: auto;
-  transition: --edgeColor 400ms;
-  &.scrambling {
-    --edgeColor: rgba(255, 255, 255, 0);
-  }
-}
