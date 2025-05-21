@@ -11,13 +11,17 @@ function scrambleText(id) {
   gsap.registerPlugin(ScrambleTextPlugin);
 
   const animateScramble = () => {
+    textElement.classList.add('scrambling');
     gsap.to(textElement, {
       duration: 1,
       scrambleText: {
         text: originalText,
-        chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        chars: 'uppercase',
         revealDelay: 0.5,
         speed: 2,
+      },
+      onComplete: () => {
+        textElement.classList.remove('scrambling');
       },
     });
   };
